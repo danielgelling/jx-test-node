@@ -3,7 +3,7 @@ kind: Config
 build:
   tagPolicy:
     envTemplate:
-      template: "{{.DOCKER_REGISTRY}}/danielgelling/jx-test-node:{{.VERSION}}"
+      template: "http://docker-registry.jx.37.97.207.41.nip.io/danielgelling/jx-test-node:{{.VERSION}}"
   artifacts:
   - imageName: changeme
     workspace: .
@@ -17,7 +17,7 @@ profiles:
   build:
     tagPolicy:
       envTemplate:
-        template: "{{.DOCKER_REGISTRY}}/danielgelling/jx-test-node:{{.DIGEST_HEX}}"
+        template: "http://docker-registry.jx.37.97.207.41.nip.io/danielgelling/jx-test-node:{{.DIGEST_HEX}}"
     artifacts:
     - docker: {}
     local: {}
@@ -27,5 +27,5 @@ profiles:
       - name: jx-test-node
         chartPath: charts/jx-test-node
         setValueTemplates:
-          image.repository: "{{.DOCKER_REGISTRY}}/danielgelling/jx-test-node"
+          image.repository: "http://docker-registry.jx.37.97.207.41.nip.io/danielgelling/jx-test-node"
           image.tag: "{{.TAG}}"
